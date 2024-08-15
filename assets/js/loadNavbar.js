@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function () {
     await loadNavbar();
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
 
 async function loadNavbar() {
