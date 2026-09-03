@@ -8,7 +8,7 @@ async function loadFooterPlaceholder() {
 
         if (footerElement) {
             const response = await fetch('footer.html')
-            footerElement.innerHTML = await response.text();;
+            footerElement.innerHTML = await response.text();
         }
     } catch (error) {
         console.log("Error loading footer:", error);
