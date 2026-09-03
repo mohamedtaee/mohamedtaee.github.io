@@ -31,13 +31,17 @@ async function handleSubmitForm(e, form, formContainer, submitButton) {
             }
         });
 
+        const heading = document.createElement('h2');
         if (response.ok) {
-            formContainer.innerHTML = '<h2>Thank you for your message! I will get back to you soon.</h2>';
+            heading.textContent = 'Thank you for your message! I will get back to you soon.';
         } else {
-            formContainer.innerHTML = '<h2>Oops! Something went wrong, please try again.</h2>';
+            heading.textContent = 'Oops! Something went wrong, please try again.';
         }
+        formContainer.replaceChildren(heading);
     } catch (error) {
-        formContainer.innerHTML = '<h2>Oops! Something went wrong, please try again.</h2>';
+        const heading = document.createElement('h2');
+        heading.textContent = 'Oops! Something went wrong, please try again.';
+        formContainer.replaceChildren(heading);
     } finally {
         toggleButtonState(submitButton, false);
     }
