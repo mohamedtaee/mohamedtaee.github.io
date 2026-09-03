@@ -9,6 +9,11 @@ async function loadFooterPlaceholder() {
         if (footerElement) {
             const response = await fetch('footer.html')
             footerElement.innerHTML = await response.text();
+
+            const yearElement = document.getElementById('copyright-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
         }
     } catch (error) {
         console.log("Error loading footer:", error);
